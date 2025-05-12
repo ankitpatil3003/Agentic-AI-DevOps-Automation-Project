@@ -5,3 +5,4 @@ openai
 pydantic
 pytest
 dspy          # DSPy router
+python-dotenv
