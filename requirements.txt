@@ -1,8 +1,26 @@
+# app/requirements.txt
+
+# Web API framework
 fastapi
 uvicorn[standard]
-langgraph
+
+# LLM & orchestration
 openai
-pydantic
-pytest
-dspy          # DSPy router
+langgraph
+
+# Langchain (optional if you're doing any retrieval or prompt utilities)
+langchain
+langchain-core
+langchain-community
+langchain-openai
+
+# Templates, environment config
+jinja2
 python-dotenv
+pydantic
+
+# Test framework
+pytest
+
+# HTTP requests (needed for ServiceNow REST API)
+httpx

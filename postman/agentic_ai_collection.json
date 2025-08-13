@@ -1,0 +1,81 @@
+{
+  "info": {
+    "name": "Agentic AI DevOps API",
+    "description": "Postman collection for testing Agentic AI DevOps FastAPI endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Example A - Auto Execution",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"request\": \"Diagnose high CPU usage on VM-node1 and generate a mitigation script.\",\n  \"require_approval\": false\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/v1/execute",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api", "v1", "execute"]
+        }
+      }
+    },
+    {
+      "name": "Example B - With Approval",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"request\": \"Limit inbound RDP traffic on production VMs to 10.0.0.0/24\",\n  \"require_approval\": true\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/v1/execute",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api", "v1", "execute"]
+        }
+      }
+    },
+    {
+      "name": "Approve Plan",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/v1/plans/{{incident_sys_id}}/approve",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api", "v1", "plans", "{{incident_sys_id}}", "approve"]
+        }
+      }
+    },
+    {
+      "name": "Reject Plan",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/v1/plans/{{incident_sys_id}}/reject",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api", "v1", "plans", "{{incident_sys_id}}", "reject"]
+        }
+      }
+    },
+    {
+      "name": "Get Task Status",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/v1/tasks/{{incident_sys_id}}",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api", "v1", "tasks", "{{incident_sys_id}}"]
+        }
+      }
+    }
+  ]
+}
